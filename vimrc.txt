@@ -1,0 +1,9 @@
+set nu!
+set tabstop=4
+set shiftwidth=4
+set ai!
+set showmatch
+syntax on
+set autoindent
+set ruler
+set hls

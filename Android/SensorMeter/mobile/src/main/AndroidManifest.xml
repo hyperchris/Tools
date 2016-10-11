@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.sra.snama.sensometer" >
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="19" />
+    <uses-permission android:name="android.permission.BODY_SENSORS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    <service android:enabled="true" android:name=".service.HomeWatcher"
+            android:process=":home"/>
+
+        <service android:enabled="true" android:name=".service.AcceleratorService"
+            android:process=":accel"/>
+
+        <service android:enabled="true" android:name=".service.BarometerService"
+            android:process=":barometer"/>
+
+        <service android:enabled="true" android:name=".service.GyroService"
+            android:process=":gyro"/>
+
+        <service android:enabled="true" android:name=".service.LinearAccService"
+            android:process=":linear"/>
+
+        <service android:enabled="true" android:name=".service.MagneticFieldService"
+            android:process=":magnetic"/>
+        <service android:enabled="true" android:name=".service.ProximityService"
+            android:process=":proximity"/>
+        <service android:enabled="true" android:name=".service.StepService"
+            android:process=":step"/>
+        <service android:enabled="true" android:name=".service.LightService"
+            android:process=":light"/>
+        <service android:enabled="true" android:name=".service.GravityService"
+            android:process=":gravity"/>
+        <service android:enabled="true" android:name=".service.GameRotationService"
+            android:process=":gamerv"/>
+        <service android:enabled="true" android:name=".service.RotationVectorService"
+            android:process=":rotvec"/>
+        <service android:enabled="true" android:name=".service.WifiManagerService"
+            android:process=":wifi"/>
+        <service android:name=".wear.RemoteSensorService">
+            <intent-filter>
+                <action
+                    android:name="com.google.android.gms.wearable.BIND_LISTENER"/>
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
